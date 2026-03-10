@@ -49,7 +49,7 @@ Following the completion of the Gold Layer in SQL Server, I developed an interac
 * **Predictive Analytics**: Incorporate forecasting models for revenue and logistics demand.
 
 ---
-*Download the Power BI report file [here](link-to-your-pbix-file).*
+*Download the Power BI report file [here]((https://github.com/Meenakshi0313/olist-ecommerce-analytics/blob/main/Power%20BI/Olist_E-commerce_Analytics_v1.0.pbix)).*
 
 **Author:** Meenakshi Singh | Data Analyst | SQL | Data Modeling | Business Intelligence
 
