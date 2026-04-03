@@ -1,118 +1,154 @@
-## Olist E-Commerce Data Warehouse & Analytics Project
+## Olist E-Commerce: End-to-End Data Warehouse & BI Analytics
+
 
 ### 📌 Project Overview
 
-This project demonstrates the design and implementation of an end-to-end data analytics solution. By transforming raw e-commerce data into a clean, business-ready analytical model, I have enabled sophisticated reporting and actionable business insights.
+This project transforms the Olist Brazilian E-Commerce dataset into a high-performance analytical tool. Moving beyond basic visualization, I engineered a multi-layered SQL data warehouse and a Star Schema model to uncover hidden logistical bottlenecks and marketplace growth dynamics from 2016 to 2018.
 
 ---
 
-### 🎯 Objectives
+### 🚀 Quick Access
 
-- **Data Engineering**: Build a structured data warehouse from raw CSV files using a layered architecture (Bronze → Silver → Gold).
+📊 View Executive Performance Report (PDF) (./Report_and_Dashboard/Olist_Full_Performance_Report_2016-2018.pbix.pdf)
 
-- **Data Modeling**: Design a high-performance Star Schema to support scalable analytics.
+🛠️ Download Power BI Dashboard (./Report_and_Dashboard/Olist_E-commerce_Analytics_Dashboard.pbix)
 
-- **Business Intelligence**: Develop an interactive Power BI dashboard that translates complex relationships into actionable storytelling.
-
-- **Problem Solving**: Identify logistics bottlenecks and trade-corridor efficiencies.
+💾 View SQL Gold-Layer Transformation Scripts (./SQL_Scripts/gold/Olist_Gold_Layer_Views)
 
 ---
 
-### 🏗️ Architecture
+### 🏗️ Architecture & Data Engineering
 
-The project follows a multi-layered ELT/ETL framework:
+The project utilizes a Medallion Architecture (Bronze → Silver → Gold) to ensure data integrity and query performance:
 
-***Raw Data → Bronze Layer → Silver Layer → Gold Layer → Power BI Analytics***
+**Bronze**: Raw CSV ingestion into SQL Server.
 
----
+**Silver**: Data cleaning, handling nulls in delivery dates, and standardizing category names.
 
-### ⭐ Data Model (Gold Layer)
-
-The analytical model is designed as a Star Schema, ensuring efficient query performance and clear relationship management:
-
-- **Fact Table**: fact_order_items (includes KPIs like is_late_delivery and delivery_status).
-
-- **Dimension Tables**: dim_customers, dim_products, dim_sellers, dim_date.
+**Gold (Business Layer)**: Created optimized SQL Views to serve as the source for Power BI, reducing report-level processing time.
 
 ---
 
-### Dashboard Previews
+### ⭐ Data Modeling (Star Schema)
 
-*Click each section below to expand the screenshot.*
+The heart of this project is a high-performance Star Schema designed for scalability:
+
+**Fact Table**: v_FactOrderItems (Centralized metrics for Revenue, Shipping, and Delivery).
+
+**Dimension Tables**: v_DimCustomer, v_DimProduct, v_DimSeller, and a custom v_DimDate table.
+
+**Key Logic**: Implemented 1-to-Many relationships to ensure filter integrity across all three dashboard pages.
+
+---
+
+### 📊 Business Intelligence & Advanced DAX
+
+I implemented several advanced BI techniques to move the dashboard from "static charts" to a "diagnostic tool":
+
+**Dynamic Reference Labels (YoY Analysis)**: Developed complex DAX measures using CALCULATE and ALL filters to show Year-over-Year growth percentages that remain accurate even when a specific year is filtered.
+
+**Inverse KPI Polarity**: Customized conditional formatting for Logistics KPIs—where an increase in delivery days or freight cost is automatically flagged in Red, while a decrease is Green.
+
+**Efficiency Scatter Analysis**: Replaced standard gauges with a Freight Cost vs. On-Time Delivery scatter plot to identify "The Danger Zone"—high-cost shipping lanes with low reliability.
+
+---
+
+### 📈 Marketplace Journey (2016 - 2018)
+
+Click the sections below to view the historical progression of the marketplace.
 
 <details>
-  <summary>📊 Executive Sales & Performance Dashboard</summary>
+  <summary>📊 Executive Sales & Performance (2016-2018 Timeline)</summary>
   <br>
-  <img src="docs/dashboard-executive-overview.png" width="900" alt="Executive Overview">
+  <h3>Full Marketplace Summary (All-Time)</h3>
+  <img src="Assets/Executive_Overview_Full_Summary.png" width="900" alt="Executive_Overview_Full_Summary">
+  <hr>
+  <h3>Yearly Progression</h3>
+  <p><b>2016: The Launch Phase</b></p>
+  <img src="Assets/Executive_Overview_2016_Launch.png" width="900" alt="Executive_Overview_2016_Launch">
+  <br><br>
+  <p><b>2017: The Exponential Growth Year (+12,000% Revenue)</b></p>
+  <img src="Assets/Executive_Overview_2017_Growth.png" width="900" alt="Executive_Overview_2017_Growth">
+  <br><br>
+  <p><b>2018: Market Maturity & Peak Performance</b></p>
+  <img src="Assets/Executive_Overview_2018_Maturity.png" width="900" alt="Executive_Overview_2018_Maturity">
 </details>
-
+  
 <details>
-  <summary>👥 Customer & Seller Insights</summary>
+  <summary>🚚 Logistics Performance & Fulfillment Analysis (2016-2018)</summary>
   <br>
-  <img src="docs/dashboard-customer-seller-insights.png" width="900" alt="Customer Seller Insights">
+  <h3>Full Lifecycle Performance (All-Time)</h3>
+  <img src="Assets/Logistics_Analysis_Full_Lifecycle.png" width="900" alt="Logistics Full Summary">
+  <hr>
+  <h3>Operational Evolution</h3>
+  
+  <p><b>2016: The Efficiency Baseline</b></p>
+  <p><i>Insight: With low volume, the network achieved a 98.7% on-time rate with only 6 total late orders.</i></p>
+  <img src="Assets/Logistics_Analysis_2016_Baseline.png" width="900" alt="Logistics 2016">
+  <br><br>
+  
+  <p><b>2017: Scaling Challenges</b></p>
+  <p><i>Insight: As orders surged, the Amazonas (AM) region emerged as a major bottleneck with a 48-day average delivery time.</i></p>
+  <img src="Assets/Logistics_Analysis_2017_Scale_Challenges.png" width="900" alt="Logistics 2017">
+  <br><br>
+  
+  <p><b>2018: Diagnostic Optimization</b></p>
+  <p><i>Insight: Implemented the Freight Cost vs. Delivery Performance scatter plot to identify high-cost/low-reliability shipping lanes.</i></p>
+  <img src="Assets/Logistics_Analysis_2018_Efficiency_Gains.png" width="900" alt="Logistics 2018">
 </details>
 
-<details>
-  <summary>🚚 Logistics Performance & Fulfillment Analysis</summary>
+ <details>
+  <summary>👥 Customer & Seller Insights (Marketplace Dynamics)</summary>
   <br>
-  <img src="docs/dashboard-logistics-delivery.png" width="900" alt="Logistics Analysis">
+  <h3>Total Marketplace Footprint (All-Time)</h3>
+  <img src="Assets/Customer_Seller_Insights_Full.png" width="900" alt="Customer Seller Full Summary">
+  <hr>
+  <h3>Growth & Geography</h3>
+  
+  <p><b>2016: Early Adopters</b></p>
+  <p><i>Focus: Initial seller distribution across the primary hubs of São Paulo and Rio de Janeiro.</i></p>
+  <img src="Assets/Customer_Seller_Insights_2016.png" width="900" alt="Customer 2016">
+  <br><br>
+  
+  <p><b>2017: Rapid Expansion</b></p>
+  <p><i>Focus: Total customers increased by over 14,000%, testing the platform's ability to maintain a 4.0+ review score.</i></p>
+  <img src="Assets/Customer_Seller_Insights_2017.png" width="900" alt="Customer 2017">
+  <br><br>
+  
+  <p><b>2018: Established Marketplace</b></p>
+  <p><i>Focus: Analyzing the 9.9% repeat customer rate and the dominance of the São Paulo region in total revenue.</i></p>
+  <img src="Assets/Customer_Seller_Insights_2018.png" width="900" alt="Customer 2018">
 </details>
 
-<details>
-  <summary>📐 Data Model (Star Schema)</summary>
+  <details>
+  <summary> 🏠 Home Page </summary>
   <br>
-  <img src="docs/star-schema-diagram.png" width="900" alt="Star Schema Model">
-</details>
+  <img src="docs/Olist_Star_Schema_Data_Model.png" width="900" alt="Olist_Star_Schema_Data_Model">
+  </details>
 
 ---
 
-### 📊 BI & Visualization Layer (Power BI)
+### 💡 Key Insights & Recommendations
 
-Key technical implementations that drive the dashboard's utility:
+**Logistics Bottleneck**: The Amazonas (AM) region averages 48 days for delivery, nearly 4x the national average. Recommendation: Establish a local distribution hub or renegotiate carrier contracts for Northern Brazil.
 
-- **Bi-Directional Filter Modeling**: Implemented complex cross-filter relationships in the Star Schema, enabling multi-dimensional "corridor analysis" between Customer and Seller regions.
+**The "Sweet Spot"**: The scatter plot reveals that categories like "Bed Bath Table" have the highest volume and high costs; optimizing this single category’s logistics would have a massive impact on total margin.
 
-- **Optimized Data Mapping**: Replaced code-based lookups with pre-calculated full-name state columns in dim_customers and dim_sellers, ensuring high-performance data labeling and seamless geographical readability across all charts.
-
-- **Data Storytelling**: Identified a significant logistics bottleneck in the Amazonas (AM) region, providing a clear path for supply chain optimization.
-
-- **User Interactivity**: Added "Clear All Slicers" navigation buttons and dynamic DAX-driven titles for a seamless user experience.
+**Scale Stability**: Despite a 14,000% increase in order volume from 2016 to 2017, the average review score stayed at 4.0, proving the marketplace's quality control is scalable.
 
 ---
 
-### 💡 Key Business Findings
+### 🛠️ Tech Stack
 
-- **Regional Bottlenecks**: Identified that sellers in the Amazonas (AM) region face significantly higher delivery lead times compared to the national average.
+**Database**: SQL Server (T-SQL)
 
-- **Marketplace Correlation**: Discovered a direct correlation between specific seller locations and customer review scores, allowing for targeted vendor-performance interventions.
+**BI Tool**: Power BI (DAX, Power Query)
 
----
-
-### 🛠️ Technologies Used
-
-- **SQL Server & T-SQL**: ETL pipelines and Gold layer view creation.
-
-- **Power BI**: DAX, Star Schema Modeling, Interactive UI.
-
-- **GitHub**: Version control and documentation.
+**Methodology**: Star Schema Modeling, Medallion Architecture, UI/UX Dashboard Design.
 
 ---
 
-### 🚀 Future Improvements
+### Author: Meenakshi Singh | Aspiring Data Analyst
 
-- **Performance Optimization**: Implement indexing on key fact table columns for faster query execution.
-
-- **Advanced Orchestration**: Integrate with Azure Data Factory for automated scheduling.
-
-- **Predictive Analytics**: Incorporate forecasting models for revenue and logistics demand.
-
----
-
-*[Download the Power BI report file here](https://github.com/Meenakshi0313/olist-ecommerce-analytics/blob/main/Power%20BI/Olist_E-commerce_Analytics_v1.0.pbix).*
-
----
-
-### Author: 
-
-Meenakshi Singh | Data Analyst | SQL | Data Modeling | Business Intelligence
+Specializing in SQL, Data Modeling, and Business Intelligence.
 
