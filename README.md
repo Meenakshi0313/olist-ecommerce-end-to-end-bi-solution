@@ -13,6 +13,8 @@ This project delivers a high-fidelity, 5-page Business Intelligence suite design
 
 The foundation of this suite is a high-performance **Star Schema** designed for scalability and DAX efficiency.
 
+![Star Schema Data Model](Olist_Star_Schema_Data_Model.png)
+
 * **Fact Table:** `v_FactOrderItems` containing granular transactional metrics like Delivery Days, Freight Value, and Approval Days.
 * **Dimension Tables:** Dedicated tables for Products (`v_DimProduct`), Dates (`v_DimDate`), Sellers (`v_DimSeller`), and Customers (`v_DimCustomer`).
 * **Optimization:** Relationship cardinality is strictly 1:Many to ensure efficient calculation and filter propagation.
@@ -43,18 +45,23 @@ The foundation of this suite is a high-performance **Star Schema** designed for 
 
 ### 1. Home Page / Navigation Hub
 The central entry point providing a high-level branding overview and intuitive access to all sub-intelligence modules.
+![Executive Suite](01Home_Page.png)
 
 ### 2. Executive Strategic Suite
-Focuses on "North Star" metrics including Total Revenue ($1.11M), Perfect Order Rate (52.60%), and Revenue Distribution by Category.
+Focuses on "North Star" metrics including Total Revenue, Perfect Order Rate, and Revenue Distribution.
+![Executive Suite](02_Executive_Strategic_Suite.png)
 
 ### 3. Logistics & Supply Chain Intelligence
-Deep-dives into delivery performance with a focus on SLA Compliance % (93.44%) and Average Delivery Days (14.02).
+Deep-dives into delivery performance, SLA Compliance %, and Average Delivery Days by state.
+![Logistics Intelligence](03_Logistics_intelligence.png)
 
 ### 4. Ecosystem & Network Dynamics
-Analyzes the health of the marketplace by mapping Active Seller % (31%) and Seller Success Rates (64.17%).
+Analyzes the health of the marketplace by mapping Seller quality vs. Revenue contribution.
+![Ecosystem Dynamics](04_Ecosystem_Dynamics.png)
 
 ### 5. Product Portfolio Performance
-Identifies the "Stars" and "Risks" in the product catalog using Profitability vs. Satisfaction scatter charts and Review Score Distributions.
+Identifies the "Stars" and "Risks" using Profitability vs. Satisfaction scatter charts.
+![Product Performance](05_Product_Performance.png)
 
 ---
 
