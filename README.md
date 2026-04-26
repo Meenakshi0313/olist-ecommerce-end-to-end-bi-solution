@@ -9,24 +9,31 @@ This project delivers a high-fidelity, 5-page Business Intelligence suite design
 
 ## 🛠️ Technical Architecture
 
-### 1. Data Modeling (Star Schema)
+The foundation of this suite is a high-performance **Star Schema** designed for scalability and DAX efficiency. This structure ensures minimal data redundancy and optimized filter propagation across all five dashboard pages.
 
-The foundation of this suite is a high-performance **Star Schema** designed for scalability and DAX efficiency.
+1. **Data Modeling (Star Schema)**
+   
+<details>
+<summary>📸 Click here to view the Star Schema Diagram</summary>
+![Star Schema Data Model](Olist_Star_Schema_Data_Model.png)
+</details>
 
-![Star Schema Data Model](Assets/Olist_Star_Schema_Data_Model.png)
+* **Fact Table:** `v_FactOrderItems` — Stores granular transactional metrics (Price, Freight, Delivery Days).
+* **Dimension Tables:** * `v_DimProduct`: Product attributes and categories.
+    * `v_DimDate`: Temporal attributes for Time Intelligence.
+    * `v_DimSeller`: Geographic and success metrics for platform vendors.
+    * `v_DimCustomer`: Demographic and retention data.
+* **Optimization:** Strictly utilized **1:Many relationships** to maximize calculation speed and avoid ambiguity in multi-page filtering.
 
-* **Fact Table:** `v_FactOrderItems` containing granular transactional metrics like Delivery Days, Freight Value, and Approval Days.
-* **Dimension Tables:** Dedicated tables for Products (`v_DimProduct`), Dates (`v_DimDate`), Sellers (`v_DimSeller`), and Customers (`v_DimCustomer`).
-* **Optimization:** Relationship cardinality is strictly 1:Many to ensure efficient calculation and filter propagation.
 
-### 2. Advanced DAX & Analytical Logic
+2. **Advanced DAX & Analytical Logic**
 
-* **Monthly Active Customers (MAC):** A dynamic trend line used to measure platform stickiness and customer retention.
-* **SLA Compliance:** Custom logic calculating the variance between estimated and actual delivery dates to track supply chain reliability.
+This project utilizes complex DAX formulas to move beyond basic aggregation into predictive and descriptive analytics:
+
+* **Monthly Active Customers (MAC):** A dynamic trend line used to measure platform stickiness.
+* **SLA Compliance:** Logic calculating the variance between estimated and actual delivery dates to track supply chain reliability.
 * **Product Risk Logic:** A custom threshold-based alert system for **Low Rating %**:
-    * **Critical (> 20%)**: Highlighted in Muted Coral.
-    * **Warning (10-20%)**: Highlighted in Harvest Gold.
-    * **Healthy (< 10%)**: Highlighted in Forest Mint.
+    * **Critical (> 20%)**: Muted Coral | **Warning (10-20%)**: Harvest Gold | **Healthy (< 10%)**: Forest Mint.
 
 ---
 
@@ -51,7 +58,7 @@ The central entry point providing a high-level branding overview and intuitive a
 * **Business Case:** Eliminates "Dashboard Fatigue" by providing a clean, intuitive entry point for non-technical users.
 * **Key Features:** Interactive grid layout, high-contrast buttons with glow-effects, and a unified SaaS-style brand identity.
 
-![Home Page](Assets/01_Home_Page.jpg)
+![Home Page](Assets/01_Home_Page.png)
 </details>
 
 <details>
@@ -105,9 +112,11 @@ The central entry point providing a high-level branding overview and intuitive a
 
 ![Product Performance](Assets/05_Product_Performance.png)
 </details>
+
 ---
 
 ## 📈 Key Insights & Business Value
+
 * **Operational Efficiency:** Isolated high-cost logistics routes that were not meeting SLA standards.
 * **Growth Strategy:** Identified the **Returning Customer** segment to help marketing teams focus on retention vs. acquisition.
 * **Risk Mitigation:** Provided a "High Risk" list of product categories based on poor review scores, allowing for immediate quality control intervention.
@@ -115,6 +124,7 @@ The central entry point providing a high-level branding overview and intuitive a
 ---
 
 ## 📂 Repository Contents
+
 * 📄 **[View Executive Performance Report (PDF)](Report_and_Dashboard/Olist_E-commerce_Analytics_Dashboard.pdf)**
 * 📊 **[Download Power BI Dashboard (.pbix)](Report_and_Dashboard/Olist_E-commerce_Analytics_Dashboard.pbix)**
 * 📂 **[View SQL Gold-Layer Transformation Scripts](SQL_Scripts/02_Gold_Reporting_Views.sql)**
