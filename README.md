@@ -13,7 +13,7 @@ This project delivers a high-fidelity, 5-page Business Intelligence suite design
 
 The foundation of this suite is a high-performance **Star Schema** designed for scalability and DAX efficiency.
 
-![Star Schema Data Model](Olist_Star_Schema_Data_Model.png)
+![Star Schema Data Model](Assets/Olist_Star_Schema_Data_Model.png)
 
 * **Fact Table:** `v_FactOrderItems` containing granular transactional metrics like Delivery Days, Freight Value, and Approval Days.
 * **Dimension Tables:** Dedicated tables for Products (`v_DimProduct`), Dates (`v_DimDate`), Sellers (`v_DimSeller`), and Customers (`v_DimCustomer`).
@@ -44,24 +44,30 @@ The foundation of this suite is a high-performance **Star Schema** designed for 
 ## 📊 The Analytical Suite Breakdown
 
 ### 1. Home Page / Navigation Hub
+
 The central entry point providing a high-level branding overview and intuitive access to all sub-intelligence modules.
-![Executive Suite](01Home_Page.png)
+![Home Page](Assets/01_Home_Page.png)
 
 ### 2. Executive Strategic Suite
+
 Focuses on "North Star" metrics including Total Revenue, Perfect Order Rate, and Revenue Distribution.
-![Executive Suite](02_Executive_Strategic_Suite.png)
+![Executive Suite](Assets/02_Executive_Strategic_Suite.png)
 
 ### 3. Logistics & Supply Chain Intelligence
+
 Deep-dives into delivery performance, SLA Compliance %, and Average Delivery Days by state.
-![Logistics Intelligence](03_Logistics_intelligence.png)
+![Logistics Intelligence](Assets/03_Logistics_intelligence.png)
+
 
 ### 4. Ecosystem & Network Dynamics
+
 Analyzes the health of the marketplace by mapping Seller quality vs. Revenue contribution.
-![Ecosystem Dynamics](04_Ecosystem_Dynamics.png)
+![Ecosystem Dynamics](Assets/04_Ecosystem_Dynamics.png)
 
 ### 5. Product Portfolio Performance
+
 Identifies the "Stars" and "Risks" using Profitability vs. Satisfaction scatter charts.
-![Product Performance](05_Product_Performance.png)
+![Product Performance](Assets/05_Product_Performance.png)
 
 ---
 
